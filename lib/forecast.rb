@@ -74,11 +74,15 @@ class Forecast
 
   class << self
     def forecasts_data(city)
-      HTTParty.get("#{BASE_URL}#{city.downcase}")['previsions']
+      query = HTTParty.get("#{BASE_URL}#{city.downcase}")
+
+      query['previsions'] if query
     end
 
     def now_temp(city)
-      HTTParty.get("#{BASE_URL}#{city.downcase}")['previsions']['TempInst']
+      query = HTTParty.get("#{BASE_URL}#{city.downcase}")
+
+      query['previsions']['TempInst'] if query
     end
 
     def today(city)
@@ -95,7 +99,6 @@ class Forecast
     @date               = Date.parse(attributes['dateIso'])
     @sunrise            = attributes['leverSoleil']
     @sunset             = attributes['coucherSoleil']
-
 
     @morning_min_temp   = attributes['tempMinMatin'].to_i
     @morning_max_temp   = attributes['tempMaxMatin'].to_i
