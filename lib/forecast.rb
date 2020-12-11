@@ -21,10 +21,7 @@ class Forecast
 
   BASE_URL = ENV['FORECAST_API_URL']
 
-  CITIES = %w[Angers Annecy Biarritz Bordeaux Bruxelle Bruxelles Cannes Chambery Chamrouss Clermont-Ferrand Dijon Gap Geneve Grenoble Le\ Havre Lille Londres Lyon Marseille Metz Montpellier Nantes Nice Nîmes Paris Reims Rennes Rouen Saint-Étienne Strasbourg Toulon Toulouse]
-
-
-  PICTOS = ['', '☀', '🌤', '⛅', '🌥', '🌦', '🌦', '🌨', '🌨', '🌨', '', '🌩', '⛈', '', '☁', '🌧', '🌧', '🌧', '🌨', '🌨', '🌨', '🌫', '⛈', '🌙', '🌤', '⛅', '🌦', '🌦', '🌨', '🌨', '🌨', '', '🌩', '⛈']
+  CITIES = %w[Annecy Biarritz Bordeaux Bruxelles Chambery Geneve Grenoble Lille Londres Lyon Marseille Metz Montpellier Nantes Nice Paris Rouen Toulouse]
 
   ICONS = [
     '0',
