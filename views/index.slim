@@ -1,29 +1,4 @@
-.now-temp
-  = @now_temp
-  | °C
-
-section
-  table
-    thead
-      tr
-        th 6h-12h
-        th 12h-18h
-        th 18h-00h
-    tbody
-      tr
-        td.weather-icon title=(@icons[@today.morning_pic])
-          == svg_tag("images/weather/#{@icons[@today.morning_pic]}.svg")
-        td.weather-icon title=(@icons[@today.afternoon_pic])
-          == svg_tag("images/weather/#{@icons[@today.afternoon_pic]}.svg")
-        td.weather-icon title=(@icons[@today.evening_pic])
-          == svg_tag("images/weather/#{@icons[@today.evening_pic]}.svg")
-      tr
-        td.weather-temp
-          = @today.morning_min_temp
-          | °C
-        td.weather-temp
-          = @today.afternoon_max_temp
-          | °C
-        td.weather-temp
-          = @today.evening_min_temp
-          | °C
+ul.cities
+  - @cities.each do |city|
+    li.city
+      a href=("/#{city.downcase}") = city
