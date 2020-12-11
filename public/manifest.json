@@ -1,6 +1,7 @@
 {
  "name": "Tenki",
- "display": "fullscreen",
+ "display": "standalone",
+ "background_color": "#1E293B",
  "icons": [
   {
    "src": "\/android-icon-36x36.png",
