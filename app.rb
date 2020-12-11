@@ -5,7 +5,9 @@ require_relative 'lib/forecast.rb'
 enable :sessions
 
 get '/' do
-  redirect(to("/#{session[:last_visited_city]}")) if session[:last_visited_city] && params[:reset_last_visited_city] != 'true'
+  session[:last_visited_city] = nil if params[:reset_last_visited_city] == 'true'
+
+  redirect(to("/#{session[:last_visited_city]}")) if session[:last_visited_city]
 
   @cities = Forecast::CITIES
   slim :index
