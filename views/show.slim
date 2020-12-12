@@ -3,10 +3,10 @@ header
     .icon == svg_tag("images/list.svg")
   span
     | /
-  .font-semibold = params[:city].capitalize
+  .font-semibold = @forecast.city.capitalize
 
 .now-temp
-  = @now_temp
+  = @forecast.now_temp
   | °C
 
 section
