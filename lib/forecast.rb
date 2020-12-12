@@ -4,7 +4,7 @@ require_relative 'forecast_icons'
 require_relative 'day_forecast'
 
 class Forecast
-  attr_reader :city, :today, :tomorrow, :now_temp
+  attr_reader :city, :today, :tomorrow, :day_after_tomorrow, :now_temp
 
   BASE_URL = ENV['FORECAST_API_URL']
 
@@ -19,8 +19,9 @@ class Forecast
     forecasts  = response['previsions']
     previsions = forecasts['prevision']
 
-    @today    = DayForecast.new(@city, previsions[1])
-    @tomorrow = DayForecast.new(@city, previsions[2])
-    @now_temp = forecasts['TempInst']
+    @today              = DayForecast.new(@city, previsions[1])
+    @tomorrow           = DayForecast.new(@city, previsions[2])
+    @day_after_tomorrow = DayForecast.new(@city, previsions[3])
+    @now_temp           = forecasts['TempInst']
   end
 end

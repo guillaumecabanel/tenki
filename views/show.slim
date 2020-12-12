@@ -1,15 +1,14 @@
 header
   a href="/?reset_last_visited_city=true"
-    .icon == svg_tag("images/list.svg")
-  span
-    | /
+    .icon
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
   .font-semibold = @forecast.city.capitalize
 
-.now-temp
-  = @forecast.now_temp
-  | °C
+section.today
+  .now-temp
+    = @forecast.now_temp
+    | °C
 
-section
   table
     thead
       tr
@@ -18,19 +17,35 @@ section
         th 18h-00h
     tbody
       tr
-        td.weather-icon title=(@icons[@today.morning_pic])
-          == svg_tag("images/weather/#{@icons[@today.morning_pic]}.svg")
-        td.weather-icon title=(@icons[@today.afternoon_pic])
-          == svg_tag("images/weather/#{@icons[@today.afternoon_pic]}.svg")
-        td.weather-icon title=(@icons[@today.evening_pic])
-          == svg_tag("images/weather/#{@icons[@today.evening_pic]}.svg")
+        td.weather-icon title=(@icons[@forecast.today.morning_pic])
+          == svg_tag("images/weather/#{@icons[@forecast.today.morning_pic]}.svg")
+        td.weather-icon title=(@icons[@forecast.today.afternoon_pic])
+          == svg_tag("images/weather/#{@icons[@forecast.today.afternoon_pic]}.svg")
+        td.weather-icon title=(@icons[@forecast.today.evening_pic])
+          == svg_tag("images/weather/#{@icons[@forecast.today.evening_pic]}.svg")
       tr
         td.weather-temp
-          = @today.morning_min_temp
+          = @forecast.today.morning_min_temp
           | °C
         td.weather-temp
-          = @today.afternoon_max_temp
+          = @forecast.today.afternoon_max_temp
           | °C
         td.weather-temp
-          = @today.evening_min_temp
+          = @forecast.today.evening_min_temp
+          | °C
+
+- [@forecast.tomorrow, @forecast.day_after_tomorrow].each do |day_forecast|
+  section
+    .content
+      div = day_forecast.date.strftime("%a. %d")
+      .weather-icon-small title=(@icons[day_forecast.morning_pic])
+        == svg_tag("images/weather/#{@icons[day_forecast.morning_pic]}.svg")
+      .weather-icon-small title=(@icons[day_forecast.afternoon_pic])
+        == svg_tag("images/weather/#{@icons[day_forecast.afternoon_pic]}.svg")
+      div
+        .text-right
+          = day_forecast.morning_min_temp
+          | °C
+        .text-right
+          = day_forecast.afternoon_max_temp
           | °C

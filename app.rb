@@ -17,10 +17,7 @@ get '/:city' do
   session[:last_visited_city] = params[:city]
 
   @icons    = Forecast::ICONS
-
   @forecast = Forecast.new(params[:city])
-  @today    = @forecast.today
-  @tomorrow = @forecast.tomorrow
 
   slim :show
 end
