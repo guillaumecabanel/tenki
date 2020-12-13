@@ -7,10 +7,12 @@ enable :sessions
 get '/' do
   session[:last_visited_city] = nil if params[:reset_last_visited_city] == 'true'
 
-  redirect(to("/#{session[:last_visited_city]}")) if session[:last_visited_city]
-
-  @cities = Forecast::CITIES
-  slim :index
+  if session[:last_visited_city]
+    redirect(to("/#{session[:last_visited_city]}"))
+  else
+    @cities = Forecast::CITIES
+    slim :index
+  end
 end
 
 get '/:city' do
