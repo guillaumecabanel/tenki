@@ -1,6 +1,9 @@
 {
- "name": "Tenki",
+ "name": "Tenki - simple forecast",
+ "short_name": "Tenki",
+ "description": "Simple yet accurate forecast.",
  "display": "standalone",
+ "start_url": "/",
  "background_color": "#1E293B",
  "theme_color": "#1E293B",
  "icons": [
