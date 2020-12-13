@@ -11,7 +11,7 @@ class Forecast
   CITIES = %w[Annecy Biarritz Bordeaux Bruxelles Chambery Geneve Grenoble Lille Londres Lyon Marseille Metz Montpellier Nantes Nice Paris Rouen Toulouse]
 
   def initialize(city)
-    return unless city
+    return unless CITIES.map(&:downcase).include? city.downcase
 
     @city = city
 
@@ -19,9 +19,6 @@ class Forecast
     return if response.client_error?
 
     forecasts  = response['previsions']
-
-    return unless forecasts
-
     previsions = forecasts['prevision']
 
     @today              = DayForecast.new(@city, previsions[1])

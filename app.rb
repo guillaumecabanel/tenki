@@ -21,7 +21,5 @@ get '/:city' do
   @icons    = Forecast::ICONS
   @forecast = Forecast.new(params[:city])
 
-  pp @forecast
-
   slim :show
 end
