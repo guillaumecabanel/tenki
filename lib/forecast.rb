@@ -11,6 +11,8 @@ class Forecast
   CITIES = %w[Annecy Biarritz Bordeaux Bruxelles Chambery Geneve Grenoble Lille Londres Lyon Marseille Metz Montpellier Nantes Nice Paris Rouen Toulouse]
 
   def initialize(city)
+    return unless city
+
     @city = city
 
     response = HTTParty.get("#{BASE_URL}#{@city.downcase}")
