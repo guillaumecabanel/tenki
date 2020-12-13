@@ -19,6 +19,9 @@ class Forecast
     return if response.client_error?
 
     forecasts  = response['previsions']
+
+    return unless forecasts
+
     previsions = forecasts['prevision']
 
     @today              = DayForecast.new(@city, previsions[1])
