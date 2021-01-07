@@ -16,10 +16,16 @@ get '/' do
 end
 
 get '/:city' do
+  return 404 unless Forecast::CITIES.map(&:downcase).include? params[:city].downcase
+
   session[:last_visited_city] = params[:city]
 
   @icons    = Forecast::ICONS
   @forecast = Forecast.new(params[:city])
 
   slim :show
+end
+
+error 404 do
+  'Not found'
 end
