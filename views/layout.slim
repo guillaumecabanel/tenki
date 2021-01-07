@@ -1,17 +1,18 @@
 doctype html
-html
+html lang="en"
   head
     meta charset="UTF-8"
     meta name="viewport"                     content="width=device-width, initial-scale=1.0"
     meta name="apple-mobile-web-app-capable" content="yes"
     meta name="mobile-web-app-capable"       content="yes"
+    meta name="Description"                  content="Simple yet accurate forecast."
 
     title Tenki
 
     link rel="manifest" href="/manifest.json"
 
     link href="https://unpkg.com/normalize.css@8.0.1/normalize.css" rel="stylesheet"
-    link href="style.css"                                           rel="stylesheet"
+    == slim :style
 
     == slim :ios_pwa_links
   body

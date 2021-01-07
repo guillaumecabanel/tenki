@@ -1,4 +1,5 @@
-ul.cities
-  - @cities.each do |city|
-    li.city
-      a href=("/#{city.downcase}") = city
+nav
+  ul.cities
+    - @cities.each do |city|
+      li.city
+        a href=("/#{city.downcase}") = city
