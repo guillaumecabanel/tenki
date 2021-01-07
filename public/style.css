@@ -15,12 +15,12 @@ body {
   min-height: 100vh;
   font-size: 16px;
   font-family: 'Open Sans', sans-serif;
-  color: #94A3B8;
+  color: #CBD5E1;
 }
 
 header {
   display: flex;
-  color: #94A3B8;
+  color: #CBD5E1;
   background-color: #0F172A;
   padding: .5rem;
   align-items: center;
@@ -57,13 +57,13 @@ section.today {
 th {
   font-size: 1.2rem;
   font-weight: normal;
-  color: #94A3B8;
+  color: #CBD5E1;
   text-align: center;
   width: 100%;
 }
 
 td {
-  color: #CBD5E1;
+  color: #E2E8F0;
 }
 
 .weather-icon {
@@ -78,7 +78,7 @@ td {
 
 .now-temp {
   font-size: 4rem;
-  color: #CBD5E1;
+  color: #E2E8F0;
   text-align: center;
   padding: 2rem 0;
 }
@@ -122,7 +122,7 @@ tr {
   margin: .5rem 1rem;
   display: block;
   background-color: #0F172A;
-  color: #94A3B8;
+  color: #CBD5E1;
   text-decoration: none;
   text-align: center;
   font-size: 1.5rem;
@@ -138,7 +138,7 @@ tr {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 1.5rem;
-  color: #CBD5E1;
+  color: #E2E8F0;
 }
 
 .text-right {
